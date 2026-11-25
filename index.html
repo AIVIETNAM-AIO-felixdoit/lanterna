@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lanterna — Release a wish into the night sky</title>
+  <meta name="description" content="Lanterna is an interactive night sky inspired by the Hội An lantern festival. Write a wish, a worry or a thank-you, light a lantern and let it go.">
+  <meta name="theme-color" content="#070a1f">
+  <meta property="og:title" content="Lanterna — Release a wish into the night sky">
+  <meta property="og:description" content="Write a wish. Light a lantern. Let it go.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏮</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="sky" aria-label="Night sky filled with floating lanterns. Click a lantern to read its wish." role="img"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a href="#top" class="logo" aria-label="Lanterna home"><span class="logo-mark">🏮</span> Lanterna</a>
+    <div class="nav-right">
+      <span class="counter" aria-live="polite"><strong id="litCount">0</strong> lanterns lit</span>
+      <button class="icon-btn" id="soundBtn" aria-pressed="false" title="Toggle ambient sound">
+        <span class="sound-off">🔇</span><span class="sound-on">🔊</span><span class="btn-label">Sound</span>
+      </button>
+      <button class="icon-btn" id="saveBtn" title="Save the sky as an image">📸<span class="btn-label">Save sky</span></button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <p class="eyebrow">Inspired by the full-moon lantern nights of Hội An, Việt Nam</p>
+      <h1 class="title">Lanterna</h1>
+      <p class="tagline">Write a wish, a worry or a thank-you.<br>Light a lantern. <em>Let it go.</em></p>
+
+      <form class="composer card" id="composer" autocomplete="off">
+        <label for="wish" class="sr-only">Your wish</label>
+        <textarea id="wish" maxlength="140" rows="2" placeholder="I wish…" required></textarea>
+
+        <fieldset class="moods">
+          <legend class="sr-only">What does your lantern carry?</legend>
+          <label class="mood" style="--c:#ffb347"><input type="radio" name="mood" value="hope" checked><span>Hope</span></label>
+          <label class="mood" style="--c:#ff7a90"><input type="radio" name="mood" value="love"><span>Love</span></label>
+          <label class="mood" style="--c:#5fe0b0"><input type="radio" name="mood" value="gratitude"><span>Gratitude</span></label>
+          <label class="mood" style="--c:#7cc4ff"><input type="radio" name="mood" value="calm"><span>Letting go</span></label>
+          <label class="mood" style="--c:#b98cff"><input type="radio" name="mood" value="dream"><span>Dream</span></label>
+        </fieldset>
+
+        <div class="composer-row">
+          <button type="button" id="inspireBtn" class="btn ghost">✦ Inspire me</button>
+          <span class="char"><span id="charCount">0</span>/140</span>
+          <button type="submit" class="btn primary" id="releaseBtn">Release lantern <span aria-hidden="true">↑</span></button>
+        </div>
+        <p class="hint">Click any lantern in the sky to read it · <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to release</p>
+      </form>
+
+      <a href="#how" class="scroll-cue" aria-label="Scroll to learn more"><span></span></a>
+    </section>
+
+    <section class="section" id="how">
+      <h2>A ritual in three breaths</h2>
+      <p class="section-sub">Every full moon in Hội An, the electric lights go dark and the river fills with paper lanterns carrying people's wishes. Lanterna brings that quiet moment to your screen.</p>
+      <div class="steps">
+        <article class="step card">
+          <span class="step-num">01</span>
+          <h3>Write</h3>
+          <p>Put one thought into words: something you hope for, someone you love, or a weight you're ready to put down.</p>
+        </article>
+        <article class="step card">
+          <span class="step-num">02</span>
+          <h3>Choose its light</h3>
+          <p>Each colour carries a meaning, so your sky becomes a map of what you've been feeling.</p>
+          <ul class="legend">
+            <li style="--c:#ffb347">Hope</li><li style="--c:#ff7a90">Love</li><li style="--c:#5fe0b0">Gratitude</li><li style="--c:#7cc4ff">Letting go</li><li style="--c:#b98cff">Dream</li>
+          </ul>
+        </article>
+        <article class="step card">
+          <span class="step-num">03</span>
+          <h3>Release &amp; revisit</h3>
+          <p>Watch it rise and join the others. Click any lantern to read it again, or release it for good when you're ready.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="journal">
+      <div class="journal-head">
+        <div>
+          <h2>Your lantern journal</h2>
+          <p class="section-sub">Everything stays on your device. Nothing is uploaded.</p>
+        </div>
+        <div class="mood-chart card" id="moodChart" aria-label="Your lanterns by meaning"></div>
+      </div>
+
+      <div class="journal-tools">
+        <div class="filters" role="tablist" id="filters"></div>
+        <label class="search">
+          <span class="sr-only">Search your lanterns</span>
+          <input type="search" id="search" placeholder="Search your lanterns…">
+        </label>
+      </div>
+
+      <ul class="journal-list" id="journalList"></ul>
+      <p class="empty" id="emptyState" hidden>No lanterns here yet. The sky is waiting for you. 🌙</p>
+    </section>
+
+    <footer class="footer section">
+      <div class="footer-grid">
+        <div>
+          <h3>About Lanterna</h3>
+          <p>A small, calm place to put your thoughts into light. Made for the <strong>Build Your Own Website Hackathon 2026</strong> by Roxten Studios.</p>
+        </div>
+        <div>
+          <h3>How it's built</h3>
+          <p>Hand-written HTML, CSS and vanilla JavaScript. The sky, stars, mountains, river and lanterns are drawn live on <strong>Canvas 2D</strong>. The ambient music and chimes are generated with the <strong>Web Audio API</strong>. There are no images, audio files or frameworks.</p>
+        </div>
+        <div>
+          <h3>Disclosure</h3>
+          <p>Built with help from <strong>Claude</strong>, an AI coding assistant by Anthropic. Fonts come from Google Fonts (Cormorant Garamond and Inter). No templates or third-party JS libraries are used.</p>
+        </div>
+      </div>
+      <p class="copyright">🏮 Lanterna · Made with light, for everyone who needs to let something go.</p>
+    </footer>
+  </main>
+
+  <dialog id="wishDialog" class="wish-dialog">
+    <div class="wish-paper">
+      <span class="wish-mood" id="dlgMood">Hope</span>
+      <p class="wish-text" id="dlgText"></p>
+      <p class="wish-meta" id="dlgMeta"></p>
+      <div class="wish-actions">
+        <button class="btn ghost" id="dlgCopy" type="button">Copy</button>
+        <button class="btn primary" id="dlgClose" type="button">Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
