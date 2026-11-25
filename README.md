@@ -7,7 +7,7 @@
 *An interactive night sky inspired by the full-moon lantern festival of Hoi An, Viet Nam.*
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-Open_Lanterna-ffb347?style=for-the-badge&logo=githubpages&logoColor=white)](https://aivietnam-aio-felixdoit.github.io/lanterna/)
-[![Demo Video](https://img.shields.io/badge/Demo_Video-Watch-ff7a90?style=for-the-badge&logo=youtube&logoColor=white)](assets/lanterna-demo.mp4)
+[![Demo Video](https://img.shields.io/badge/Demo_Video-Watch-ff7a90?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/8IRmX-lpq5o)
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
@@ -18,7 +18,7 @@
 ![GitHub Pages](https://img.shields.io/badge/hosted_on-GitHub_Pages-222?style=flat-square&logo=github)
 ![Hackathon](https://img.shields.io/badge/Build_Your_Own_Website-Hackathon_2026-ffb347?style=flat-square)
 
-<a href="assets/lanterna-demo.mp4"><img src="assets/demo.gif" alt="Lanterna demo: releasing a lantern into the night sky" width="760"></a>
+<a href="https://youtu.be/8IRmX-lpq5o"><img src="assets/demo.gif" alt="Lanterna demo: releasing a lantern into the night sky" width="760"></a>
 
 <sub>▶ Click the preview to watch the full demo video with narration (1 min).</sub>
 
@@ -27,9 +27,9 @@
 ---
 
 ## 🎬 Demo video
-**[▶ Watch the demo video (MP4, 1 min, with narration)](assets/lanterna-demo.mp4)**
+**[▶ Watch on YouTube](https://youtu.be/8IRmX-lpq5o)** · [Download MP4](assets/lanterna-demo.mp4)
 
-<!-- YouTube: replace this line with [![Watch on YouTube](https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=VIDEO_ID) -->
+[![Watch the Lanterna demo on YouTube](https://img.youtube.com/vi/8IRmX-lpq5o/hqdefault.jpg)](https://youtu.be/8IRmX-lpq5o)
 
 ## 📸 Screenshots
 
