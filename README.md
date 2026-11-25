@@ -2,7 +2,7 @@
 
 **Live site:** https://aivietnam-aio-felixdoit.github.io/lanterna/
 
-Lanterna is an interactive night sky inspired by the full-moon lantern festival of **Hội An, Việt Nam**. Once a month the town turns off its electric lights, and the river fills with paper lanterns carrying people's wishes. Lanterna brings that quiet moment to your screen. You write a wish, a worry or a thank-you, light a lantern and let it go.
+Lanterna is an interactive night sky inspired by the full-moon lantern festival of **Hoi An, Viet Nam**. Once a month the town turns off its electric lights, and the river fills with paper lanterns carrying people's wishes. Lanterna brings that quiet moment to your screen. You write a wish, a worry or a thank-you, light a lantern and let it go.
 
 Built for the **Build Your Own Website Hackathon 2026** by Roxten Studios.
 
